@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image";
 import Experience from "@/components/Experience";
-import Head from 'next/head';
 
 export default function Home() {
   return (
