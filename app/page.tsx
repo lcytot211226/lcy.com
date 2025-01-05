@@ -1,11 +1,12 @@
 'use client'
 import Image from "next/image";
-import Experience from "@/component/Experience";
+import Experience from "@/components/Experience";
+import Head from 'next/head';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="w-[768px] border border-white rounded-[20px] p-8">
+    <div className="min-h-screen flex justify-center items-center p-4">
+      <div className="w-[768px] border border-white rounded-[20px] p-4">
         <PersonData/>
         <Experience/>
       </div>
@@ -14,16 +15,16 @@ export default function Home() {
 }
 
 const intros = [
-  ["Name", "Lin Chin Yung"],
-  ["Edu.", "NYCU CS 3y"],
-  ["Intro.", "haha piyan"]
+  { title: "Name", content: "Lin Chin Yung"},
+  { title: "Edu.", content: "NYCU CS 3y"},
+  { title: "Email", content: "lcytot211226@gmail.com" },
+  { title: "Intro.", content: "haha piyan"}
 ];
 
 function PersonData () {
   return (
     <div className="flex items-center">
-      <div className="w-[5%]"></div>
-      <div className="relative w-[30%] aspect-square">
+      <div className="relative w-[20%] aspect-square ml-4">
         <Image
           alt="me"
           src="/me.jpg"
@@ -31,12 +32,12 @@ function PersonData () {
           className="object-cover rounded-full"
         />
       </div>
-      <div className="w-[10%]"></div>
-      <div className="px-4 py-2 w-[50%] text-[18px]">
+      
+      <div className="px-4 py-2 text-[18px] w-[50%] ml-8">
         {intros.map( (intro, idx) => (
-          <div className="flex w-full" key={idx}>
-            <div className="w-[20%]">{intro[0]}</div>
-            <div className="w-[80%]">{intro[1]}</div>
+          <div className="flex w-full mb-2" key={idx}>
+            <div className="w-[30%]">{intro.title}</div>
+            <div className="w-[70%]">{intro.content}</div>
           </div>
         ))}
       </div>
